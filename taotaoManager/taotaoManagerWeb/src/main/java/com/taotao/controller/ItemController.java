@@ -81,17 +81,12 @@ public class ItemController {
 	}
 
 
-	@RequestMapping("/list")
-	public String getItem() {
-		return "index";
-	}
 
-	@RequestMapping("/{page}")
-	public String getItemChile(@PathVariable String page) {
-
-		return page;
-	}
-
+	/**
+	 * 获取con的方法
+	 * @return
+	 * @throws SQLException
+	 */
 	@RequestMapping(value = "/test/ApplicationContext", method = RequestMethod.GET)
 	public String testUrl() throws SQLException {
 		ApplicationContext applicationContext = SpringContextUtils.getApplicationContext();
@@ -102,6 +97,26 @@ public class ItemController {
 		Connection connection = dataSource.getConnection();
 
 		return null;
+	}
+
+	/**
+	 * 转发商品列表
+	 * @return
+	 */
+	@RequestMapping("/list")
+	public String getItem() {
+		/**
+		 * 如果是list请求，则转发到index.jsp页面
+		 */
+		return "index";
+	}
+
+	@RequestMapping("/children")
+	public String getItemChile(String path) {
+		/**
+		 * 根据请求的类型，返回对应的页面
+		 */
+		return path;
 	}
 
 

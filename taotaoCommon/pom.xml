@@ -38,8 +38,8 @@
         </dependency>
         <!-- Jackson Json处理工具包 -->
         <!--<dependency>-->
-            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--<artifactId>jackson-databind</artifactId>-->
+        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--<artifactId>jackson-databind</artifactId>-->
         <!--</dependency>-->
         <!--alibaba fastjson，用于序列化json对象和反序列化json-->
         <dependency>
@@ -79,5 +79,5 @@
             <artifactId>spring-context</artifactId>
         </dependency>
     </dependencies>
-    
+
 </project>
