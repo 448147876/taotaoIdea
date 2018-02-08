@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
+
 import java.sql.Connection;
 
 import java.sql.SQLException;
@@ -33,38 +34,42 @@ public class ItemController {
 
 	/**
 	 * 进行post请求，接受参数为pojo
+	 *
 	 * @param tbItem
 	 * @return
 	 */
-	@RequestMapping(value = "/itemId01",method = RequestMethod.POST)
+	@RequestMapping(value = "/itemId01", method = RequestMethod.POST)
 	@ResponseBody
 	public TbItem getItemById01(TbItem tbItem) {
-		if(tbItem != null){
+		if (tbItem != null) {
 			TbItem tbItemQry = itemService.getItemById(tbItem.getId());
 			return tbItemQry;
-		}else{
+		} else {
 			return tbItem;
 		}
 	}
 
 	/**
 	 * 进行post请求，使用get方式，接收参数为商品id
+	 *
 	 * @param tbItemId
 	 * @return
 	 */
-	@RequestMapping(value = "/itemId02",method = RequestMethod.GET)
+	@RequestMapping(value = "/itemId02", method = RequestMethod.GET)
 	@ResponseBody
 	public TbItem getItemById02(@RequestParam("itemId") Long tbItemId) {
-			TbItem tbItemQry = itemService.getItemById(tbItemId);
-			return tbItemQry;
+		TbItem tbItemQry = itemService.getItemById(tbItemId);
+
+		return tbItemQry;
 	}
 
 	/**
 	 * 进行post请求，使用get方式，接收参数为商品id
+	 *
 	 * @param tbItemId
 	 * @return
 	 */
-	@RequestMapping(value = "/itemId03",method = RequestMethod.POST)
+	@RequestMapping(value = "/itemId03", method = RequestMethod.POST)
 	@ResponseBody
 	public List<TbItem> getItemById03(Long tbItemId) {
 		TbItemExample example = new TbItemExample();
@@ -77,17 +82,17 @@ public class ItemController {
 
 
 	@RequestMapping("/list")
-	public String getItem(){
+	public String getItem() {
 		return "index";
 	}
 
 	@RequestMapping("/{page}")
-	public String getItemChile(@PathVariable String page){
+	public String getItemChile(@PathVariable String page) {
 
 		return page;
 	}
 
-	@RequestMapping(value = "/test/ApplicationContext",method = RequestMethod.GET)
+	@RequestMapping(value = "/test/ApplicationContext", method = RequestMethod.GET)
 	public String testUrl() throws SQLException {
 		ApplicationContext applicationContext = SpringContextUtils.getApplicationContext();
 		//执行查询，并分页
