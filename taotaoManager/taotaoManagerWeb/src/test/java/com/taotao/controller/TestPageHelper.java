@@ -1,14 +1,18 @@
 package com.taotao.controller;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 
@@ -19,6 +23,12 @@ public class TestPageHelper {
 	public void getApplicationContext(){
 		//创建一个spring容器
 		applicationContext = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-*.xml");
+	}
+	@After
+	public void closeApplicationContext(){
+		System.out.printf("测试完成");
+
+
 	}
 
 
@@ -40,6 +50,13 @@ public class TestPageHelper {
 		PageInfo<TbItem> pageInfo = new PageInfo<>(list);
 		long total = pageInfo.getTotal();
 		System.out.println("共有商品："+ total);
-
 	}
+
+	@Test
+	public void testDataSource(){
+		DruidDataSource dataSource = (DruidDataSource) applicationContext.getBean("dataSource");
+		System.out.printf(dataSource.toString());
+	}
+
+
 }
