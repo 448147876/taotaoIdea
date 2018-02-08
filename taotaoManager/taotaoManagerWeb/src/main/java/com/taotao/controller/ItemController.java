@@ -2,13 +2,9 @@ package com.taotao.controller;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.taotao.common.SpringContextUtils;
-import com.taotao.mapper.TbItemMapper;
-import com.taotao.pojo.TbItemExample;
-import org.apache.http.HttpRequest;
+import com.taotao.common.pojo.EUDataGridResult;
 
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -28,8 +24,7 @@ public class ItemController {
 
 	@Autowired
 	private ItemService itemService;
-	@Autowired
-	private TbItemMapper itemMapper;
+
 
 
 	/**
@@ -63,22 +58,7 @@ public class ItemController {
 		return tbItemQry;
 	}
 
-	/**
-	 * 进行post请求，使用get方式，接收参数为商品id
-	 *
-	 * @param tbItemId
-	 * @return
-	 */
-	@RequestMapping(value = "/itemId03", method = RequestMethod.POST)
-	@ResponseBody
-	public List<TbItem> getItemById03(Long tbItemId) {
-		TbItemExample example = new TbItemExample();
-		TbItemExample.Criteria criteria = example.createCriteria();
-		criteria.andIdEqualTo(tbItemId);
-		List<TbItem> list = itemMapper.selectByExample(example);
 
-		return list;
-	}
 
 
 
@@ -103,7 +83,7 @@ public class ItemController {
 	 * 转发商品列表
 	 * @return
 	 */
-	@RequestMapping("/list")
+	@RequestMapping(value ="/list",method = RequestMethod.GET)
 	public String getItem() {
 		/**
 		 * 如果是list请求，则转发到index.jsp页面
@@ -111,13 +91,26 @@ public class ItemController {
 		return "index";
 	}
 
-	@RequestMapping("/children")
+	@RequestMapping(value ="/children",method = RequestMethod.GET)
 	public String getItemChile(String path) {
 		/**
 		 * 根据请求的类型，返回对应的页面
 		 */
 		return path;
 	}
+
+	/**
+	 * 返回商品列表
+	 * @return
+	 */
+	@RequestMapping(value ="/itemList",method = RequestMethod.GET)
+	@ResponseBody
+	public EUDataGridResult getItemList(Integer page, Integer rows) {
+		EUDataGridResult result = itemService.getItemList(page, rows);
+
+		return result;
+	}
+
 
 
 }

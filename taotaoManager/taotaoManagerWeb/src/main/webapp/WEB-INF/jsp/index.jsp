@@ -23,16 +23,16 @@
          	<li>
          		<span>商品管理</span>
          		<ul>
-	         		<li data-options="attributes:{'url':'/item/children?path=item-add'}">新增商品</li>
-	         		<li data-options="attributes:{'url':'/item/children?path=item-list'}">查询商品</li>
-	         		<li data-options="attributes:{'url':'/item/children?path=item-param-list'}">规格参数</li>
+	         		<li data-options="attributes:{'url':'children?path=item-add'}">新增商品</li>
+	         		<li data-options="attributes:{'url':'children?path=item-list'}">查询商品</li>
+	         		<li data-options="attributes:{'url':'children?path=item-param-list'}">规格参数</li>
 	         	</ul>
          	</li>
          	<li>
          		<span>网站内容管理</span>
          		<ul>
-	         		<li data-options="attributes:{'url':'/item/children?path=content-category'}">内容分类管理</li>
-	         		<li data-options="attributes:{'url':'/item/children?path=content'}">内容管理</li>
+	         		<li data-options="attributes:{'url':'children?path=content-category'}">内容分类管理</li>
+	         		<li data-options="attributes:{'url':'children?path=content'}">内容管理</li>
 	         	</ul>
          	</li>
          </ul>
