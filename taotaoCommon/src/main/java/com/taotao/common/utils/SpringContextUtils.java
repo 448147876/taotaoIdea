@@ -1,4 +1,4 @@
-package com.taotao.common;
+package com.taotao.common.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

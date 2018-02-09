@@ -1,8 +1,7 @@
 package com.taotao.controller;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.github.pagehelper.PageHelper;
-import com.taotao.common.SpringContextUtils;
+import com.taotao.common.utils.SpringContextUtils;
 import com.taotao.common.pojo.EUDataGridResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import com.taotao.service.ItemService;
 import java.sql.Connection;
 
 import java.sql.SQLException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/item")
@@ -109,6 +107,19 @@ public class ItemController {
 		EUDataGridResult result = itemService.getItemList(page, rows);
 
 		return result;
+	}
+
+
+	/**
+	 * 返回商品类别树
+	 * @return
+	 */
+	@RequestMapping(value ="/cat",method = RequestMethod.POST)
+	@ResponseBody
+	public EUDataGridResult getItemCatTree(@RequestParam(value = "id",defaultValue = "0") Long parentId) {
+
+
+		return null;
 	}
 
 

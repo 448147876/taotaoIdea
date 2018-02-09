@@ -1,4 +1,6 @@
-Date.prototype.format = function(format){ 
+
+
+Date.prototype.format = function(format){
     var o =  { 
     "M+" : this.getMonth()+1, //month 
     "d+" : this.getDate(), //day 
@@ -18,6 +20,16 @@ Date.prototype.format = function(format){
     } 
     return format; 
 };
+
+
+
+var pathName = window.document.location.pathname;
+var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+var curWwwPath = window.document.location.href;
+var pos = curWwwPath.indexOf(pathName);
+var localhostPaht = curWwwPath.substring(0, pos);
+
+var pathLocalhost = localhostPaht+projectName;
 
 var TT = TAOTAO = {
 	// 编辑器参数
@@ -123,7 +135,7 @@ var TT = TAOTAO = {
     			    onOpen : function(){
     			    	var _win = this;
     			    	$("ul",_win).tree({
-    			    		url:'/item/cat/list',
+    			    		url:(pathLocalhost+'/itemCat/cat'),
     			    		animate:true,
     			    		onClick : function(node){
     			    			if($(this).tree("isLeaf",node.target)){

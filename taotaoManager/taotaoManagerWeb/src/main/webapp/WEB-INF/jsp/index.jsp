@@ -16,6 +16,7 @@
 		padding: 10px 10px 10px 10px;
 	}
 </style>
+
 </head>
 <body class="easyui-layout">
     <div data-options="region:'west',title:'菜单',split:true" style="width:180px;">

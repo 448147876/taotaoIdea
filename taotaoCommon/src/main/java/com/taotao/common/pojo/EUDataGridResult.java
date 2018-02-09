@@ -2,6 +2,10 @@ package com.taotao.common.pojo;
 
 import java.util.List;
 
+
+/**
+ * easuUI表格数据
+ */
 public class EUDataGridResult {
 
 	private long total;
