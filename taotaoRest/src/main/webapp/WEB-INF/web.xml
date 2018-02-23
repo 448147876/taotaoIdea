@@ -10,10 +10,8 @@
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <!-- 加载spring容器 -->
@@ -50,7 +48,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>taotaoRest</servlet-name>
-    <url-pattern>/rest/*</url-pattern>
+    <url-pattern>/taotaoRest/*</url-pattern>
   </servlet-mapping>
 
 
